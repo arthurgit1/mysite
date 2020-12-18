@@ -23,8 +23,7 @@ def create_question(question_text, days):
     given number of `days` offset to now (negative for questions published
     in the past, positive for questions that have yet to be published).
     """
-    datetime 
-    datetime = timezone.now() + datetime.timedelta(days=days)
+    datetimee = timezone.now() + datetime.timedelta(days=days)
     return
 
 
@@ -100,7 +99,7 @@ class QuestionDetailViewTests(TestCase):
         The detail view of a question with a pub_date in the past
         displays the question's text.
         """
-        past_question = create_question(question_text='Past Question.', days=-5)
-        url = reverse('polls:detail', args=(past_question.id,))
+        pastQuestion = create_question(question_text='Past Question.', days=-5)
+        url = reverse('polls:detail', args=(pastQuestion.id,))
         response = self.client.get(url)
-        self.assertContains(response, past_question.question_text)
+        self.assertContains(response, pastuestion.question_text)
